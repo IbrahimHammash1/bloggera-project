@@ -13,8 +13,8 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $attributes=$request->validate([
-            'name'=>'required',
-            'email'=>'required|email',
+            'name'=>'required|unique:users,name',
+            'email'=>'required|email|unique:users,email',
             'password'=>'required'
         ]);
         $attributes['password']=bcrypt($attributes['password']);

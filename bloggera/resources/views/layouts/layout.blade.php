@@ -9,8 +9,14 @@
 <body>
     <div class="container">
         
-        <div class="nav-bar">
-            
+        <div class="header">
+            <div class="search">
+                <form action="{{route('posts.search')}}" method="GET">
+                    @csrf
+                    <input type="search" name="search">
+                    <input type="submit">
+                </form>
+            </div>
             @guest
                 <p>You are a guest</p>
                 <div class="register">
@@ -25,9 +31,30 @@
                 <p>You are a user</p>
                 <div class="logout">
                 <a href="/logout">Logout</a>
-              @endauth
+            @endauth
 
             </div>
+        </div>
+        <div class="navbar">
+            <div class="home">
+                <a href="{{route('posts.index')}}">Home</a>
+            </div>
+
+            @auth
+            <div class="my_posts">
+                <a href="{{route('users.myposts')}}">My posts</a>
+            </div>
+            @endauth
+
+            <div class="people">
+                <a href="{{route('users.index')}}">People</a>
+            </div>
+
+            @auth
+                <div class="create_post">
+                    <a href="{{route('posts.create')}}">Create new post</a>
+                </div>
+            @endauth
         </div>
         @yield('content')
     </div>
