@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout',['title'=>'people'])
 @section('content')
 
 @foreach($users as $user)

@@ -28,5 +28,5 @@ Route::get('/posts/search/',[SearchController::class,'postsSearch'])->name('post
 
 
 
-Route::get('/users/myposts',[PostController::class,'myPosts'])->name('users.myposts');
+Route::get('/users/myposts',[PostController::class,'myPosts'])->name('users.myposts')->middleware('auth');
 Route::get('/users',[UserController::class,'index'])->name('users.index');

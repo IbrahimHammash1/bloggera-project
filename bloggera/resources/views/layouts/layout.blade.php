@@ -10,6 +10,9 @@
     <div class="container">
         
         <div class="header">
+            <div class="logo">
+                <img src="{{url('storage/logo.png')}}">
+            </div>
             <div class="search">
                 <form action="{{route('posts.search')}}" method="GET">
                     @csrf
